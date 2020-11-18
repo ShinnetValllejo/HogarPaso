@@ -18,7 +18,7 @@
                 <div class="col mb-4">
 
                  <div class="card h-100">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="..." class="card-img-top" alt="foto">
                      <div class="card-body">
                        <h1 class="card-title"><?php echo ($usuarios['nombre'])?></h1>
                        <h5 class="card-title"><?php echo ($usuarios['edad'])?></h5>
