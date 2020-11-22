@@ -17,6 +17,8 @@ class ControladorPersonas extends BaseController
 		$cedula=$this ->request->getPost("cedula");
 		$poblacion=$this ->request->getPost("poblacion");
 		$descripcion=$this ->request->getPost("descripcion");
+		$foto=$this ->request->getPost("foto");
+		
 
 	//2. Organizar los datos de envío a la base de datos (arreglo)
 
@@ -26,7 +28,8 @@ class ControladorPersonas extends BaseController
 			"edad"=>$edad,
 			"cedula"=>$cedula,
 			"poblacion"=>$poblacion,
-			"descripcion"=>$descripcion		
+			"descripcion"=>$descripcion,
+			"foto"=>$foto		
 		);
 
 		//print_r ($datosEnvio);
@@ -40,7 +43,9 @@ class ControladorPersonas extends BaseController
 	try {
 
 		$modeloUsuarios->insert($datosEnvio);
-		echo ("Registro creado con éxito");
+		$mensaje="Usuario registrado con éxito";
+
+		return redirect()->to(base_url("public/personas")) ->with('mensaje',$mensaje);	
 	}
 	
 	catch (\Exception $e) {

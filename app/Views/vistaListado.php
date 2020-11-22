@@ -15,59 +15,62 @@
 
         <?php foreach($usuarios as $usuarios):?>
 
-                <div class="col mb-4">
+                <div class="col mb-4">                
 
-                 <div class="card h-100">
-                    <img src="..." class="card-img-top" alt="foto">
-                     <div class="card-body">
-                       <h1 class="card-title"><?php echo ($usuarios['nombre'])?></h1>
-                       <h5 class="card-title"><?php echo ($usuarios['edad'])?></h5>
-                       <h5 class="card-title"><?php echo ($usuarios['cedula'])?></h5>
-                       <p class="card-text"><?php echo ($usuarios['descripcion'])?></p>
-                       
-                       <a href="<?php echo(base_url("public/personas/eliminar/".$usuarios["id"])) ?>" class = 'btn btn-danger'>Eliminar</a>
+                    <div class="card h-100">
+                        <img src="<?php echo($usuarios["foto"])?>" class="card-img-top" alt="foto">
+                        <div class="card-body">
+                            <h3 class="card-title"><?php echo ($usuarios['nombre'])?></h3>
+                            <h5 class="card-title"><?php echo ($usuarios['edad'])?></h5>
+                            <h5 class="card-title"><?php echo ($usuarios['cedula'])?></h5>
+                            <p class="card-text"><?php echo ($usuarios['descripcion'])?></p>
+                        
+                            <a href="<?php echo(base_url("public/personas/eliminar/".$usuarios["id"])) ?>" class = 'btn btn-danger'>Eliminar</a>
 
-                       <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editar<?php echo($usuarios["id"])?>">
-                          Editar
-                        </button>
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editar<?php echo($usuarios["id"])?>">
+                                Editar
+                            </button>
 
-                     </div>
-                   </div>
-                </div>
+                        </div>
+                    </div>
+                    
 
                 <!-- ventana modal con formulario -->
-                <div class="modal fade" id="editar<?php echo($usuarios["id"]) ?>" tabindex="-1" aria-labelledby="exampleModal" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Edición de usuario</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                               
-                                <form action=" <?php echo(base_url("public/personas/editar/".$usuarios["id"]))?>" method="POST">
-                                    <div class="form-group">
-                                        <label>Nombre:</label>
-                                        <input type="text" class="form-control" name= "nombreEditar" value= "<?php echo ($usuarios['nombre'])?>" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Descripcion:</label>
-                                            <textarea class="form-control" rows="3" name= "descEditar"><?php echo ($usuarios['descripcion'])?></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-warning">Enviar</button>
-                                </form>
+                    <div class="modal fade" id="editar<?php echo($usuarios["id"]) ?>" tabindex="-1" aria-labelledby="exampleModal" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Edición de usuario</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                
+                                    <form action=" <?php echo(base_url("public/personas/editar/".$usuarios["id"]))?>" method="POST">
+                                        <div class="form-group">
+                                            <label>Nombre:</label>
+                                            <input type="text" class="form-control" name= "nombreEditar" value= "<?php echo ($usuarios['nombre'])?>" >
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Descripcion:</label>
+                                                <textarea class="form-control" rows="3" name= "descEditar"><?php echo ($usuarios['descripcion'])?></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-warning">Enviar</button>
+                                    </form>
 
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
                 </div>
             <?php endforeach?>
-        </div>
+        
+
     </div>
+
+</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>      
